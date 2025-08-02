@@ -107,7 +107,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                     className="flex items-center space-x-2 bg-white/5 border border-white/10 rounded-full px-4 py-2 text-sm text-gray-300 font-medium hover:bg-white/10 transition-colors"
                   >
                     <Megaphone className="w-4 h-4 text-gray-300 mr-2" />
-                    <span>Internships have ended for the summer!</span>
+                    <span>Internships Closed!</span>
                   </Button>
                 </Link>
               </div>
