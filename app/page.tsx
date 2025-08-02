@@ -119,9 +119,9 @@ export default function HomePage() {
       expertise: "Frontend Design & Marketing",
     },
     {
-      name: "Yuvraj Singh",
-      role: "Co-Founder",
-      expertise: "Backend Development & Operations",
+      name: "Jake Pham",
+      role: "CPO",
+      expertise: "Frontend Development & Product Operations",
     },
   ]
 
