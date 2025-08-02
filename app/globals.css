@@ -1,0 +1,195 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 0%;
+    --foreground: 0 0% 100%;
+    --card: 0 0% 0%;
+    --card-foreground: 0 0% 100%;
+    --popover: 0 0% 0%;
+    --popover-foreground: 0 0% 100%;
+    --primary: 0 0% 100%;
+    --primary-foreground: 0 0% 0%;
+    --secondary: 0 0% 10%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 0 0% 10%;
+    --muted-foreground: 0 0% 60%;
+    --accent: 0 0% 10%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 0 0% 10%;
+    --input: 0 0% 10%;
+    --ring: 0 0% 20%;
+    --radius: 1rem;
+  }
+}
+
+@layer utilities {
+  .animate-pulse-slow {
+    animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  /* Smooth scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Custom scroll animations */
+  [data-scroll-animate="fade-up"] {
+    opacity: 0;
+    transform: translateY(2rem);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+  }
+
+  [data-scroll-animate="fade-left"] {
+    opacity: 0;
+    transform: translateX(-2rem);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+  }
+
+  [data-scroll-animate="fade-right"] {
+    opacity: 0;
+    transform: translateX(2rem);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+  }
+
+  [data-scroll-animate="scale"] {
+    opacity: 0;
+    transform: scale(0.95);
+    transition: opacity 1.2s ease-out, transform 1.2s ease-out;
+  }
+
+  [data-scroll-animate="rotate"] {
+    opacity: 0;
+    transform: rotate(-5deg);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+  }
+
+  @keyframes pulse {
+    0%,
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 0.5;
+      transform: scale(1.05);
+    }
+  }
+
+  @keyframes popup-zoom-in {
+    from {
+      opacity: 0;
+      transform: scale(0.8);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  .animate-popup-zoom-in {
+    animation: popup-zoom-in 0.3s ease-out forwards;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Typography improvements */
+body {
+  font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Enhanced focus states */
+button:focus-visible,
+a:focus-visible,
+input:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.3);
+  outline-offset: 2px;
+}
+
+/* Smooth transitions for all interactive elements */
+button,
+a,
+input {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Improved hover states */
+.group:hover .group-hover\:scale-105 {
+  transform: scale(1.05);
+}
+
+.group:hover .group-hover\:scale-110 {
+  transform: scale(1.1);
+}
+
+.group:hover .group-hover\:translate-x-1 {
+  transform: translateX(0.25rem);
+}
+
+/* Performance optimizations */
+* {
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow,
+    transform, filter, backdrop-filter;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 300ms;
+  will-change: auto;
+}
+
+.animate-pulse-slow,
+[data-scroll-animate] {
+  will-change: transform, opacity;
+}
+
+/* Ensure proper z-index stacking */
+nav {
+  z-index: 50;
+}
+
+main {
+  z-index: 10;
+}
+
+/* Prevent layout shifts */
+.container {
+  max-width: 100%;
+}
+
+/* Ensure buttons are always visible */
+button {
+  position: relative;
+  z-index: 1;
+}
+
+/* Fix any potential overflow issues */
+body {
+  overflow-x: hidden;
+}
+
+/* Ensure proper spacing */
+section {
+  position: relative;
+}
